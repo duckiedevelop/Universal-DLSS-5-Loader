@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "fields": [
+    {"key":"NeuralUplift","label":"Enable neural rendering","type":"bool","default":true,"group":"Look","help":"Master switch for the neural pass. DLAA can still run when this is off."},
+    {"key":"NRIntensity","label":"Overall strength","type":"float","default":1.0,"min":0.0,"max":2.0,"group":"Look","help":"How strongly the neural result changes the original frame. Start below 1 for a restrained look."},
+    {"key":"NRLocalTone","label":"Tone strength","type":"float","default":1.0,"min":0.0,"max":2.0,"group":"Look","help":"Model control for local lighting and tonal changes."},
+    {"key":"NRLocalStructure","label":"Detail strength","type":"float","default":1.0,"min":0.0,"max":2.0,"group":"Look","help":"Model control for structure and surface detail. High values can exaggerate texture."},
+    {"key":"NRSkinStructure","label":"Skin / character detail","type":"float","default":-1.0,"min":-1.0,"max":1.0,"group":"Look","help":"-1 uses the model default. Higher values request more skin detail; results depend on the scene and masking."},
+    {"key":"NRColorStrength","label":"Color strength","type":"float","default":1.0,"min":0.0,"max":1.0,"group":"Look","help":"How much of the model's color change is composed into the frame."},
+    {"key":"NRAutoMask","label":"Automatic character mask","type":"bool","default":false,"group":"Look","help":"Ask the model to infer its character mask. This is not a guaranteed face or HUD protector."},
+    {"key":"NRStyle","label":"Model style","type":"int","default":0,"min":0,"max":2,"choices":["Default","Natural","Cinematic"],"group":"Look","help":"Select a model style. These are the bundled consumer's settings; look presets above are separate starting values."},
+    {"key":"NRResolutionScale","label":"Model resolution","type":"float","default":1.0,"min":0.5,"max":1.0,"display":"percent","group":"Performance","help":"Run the neural model at 50-100% of each axis. Lower values can reduce GPU cost and fine detail; the game's output resolution stays the same."},
+    {"key":"NRPasses","label":"Neural passes","type":"int","default":1,"min":1,"max":4,"group":"Performance","help":"More neural passes stack edits and increase GPU cost. One pass is the recommended starting point."},
+    {"key":"NRChainedHistory","label":"Chained pass history","type":"bool","default":true,"group":"Performance","help":"Use the consumer's chained-history mode for multipass rendering. Turn off if comparing temporal behavior."},
+    {"key":"NRPreset","label":"Model preset","type":"int","default":0,"min":0,"max":3,"choices":["Default","Preset 1","Preset 2","Preset 3"],"group":"Performance","help":"NGX render-preset hint, not a game genre or a named look. The runtime may treat some hints alike."}
+  ],
+  "presets": [
+    {"name":"Balanced","description":"The bundled model's starting values, with one pass at full resolution.","values":{}},
+    {"name":"Subtle","description":"Smaller lighting, texture, and color changes.","values":{"NRIntensity":0.4,"NRLocalTone":0.6,"NRLocalStructure":0.6,"NRColorStrength":0.55}},
+    {"name":"Characters / story","description":"Restrained surface detail and inferred character masking. A starting look for character-heavy scenes.","values":{"NRIntensity":0.65,"NRLocalTone":0.8,"NRLocalStructure":0.6,"NRSkinStructure":0.0,"NRColorStrength":0.75,"NRAutoMask":true}},
+    {"name":"Scenery / racing","description":"More environment detail with moderate color changes.","values":{"NRIntensity":0.9,"NRLocalTone":1.05,"NRLocalStructure":1.15,"NRColorStrength":0.8}},
+    {"name":"Fast action","description":"One pass at 75% model resolution, with restrained edits. Compare frame rate and detail in your game.","values":{"NRIntensity":0.6,"NRLocalTone":0.8,"NRLocalStructure":0.75,"NRColorStrength":0.7,"NRResolutionScale":0.75,"NRPasses":1}}
+  ]
+}

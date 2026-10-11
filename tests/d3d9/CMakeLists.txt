@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.24)
+project(D3D9BridgeHost LANGUAGES CXX)
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+add_executable(D3D9BridgeHost WIN32 host.cpp)
+target_compile_definitions(D3D9BridgeHost PRIVATE UNICODE _UNICODE WIN32_LEAN_AND_MEAN NOMINMAX)
+target_link_libraries(D3D9BridgeHost PRIVATE d3d9 dxgi)

@@ -1,0 +1,48 @@
+diff --git a/host/dlss5-feed-host64.cpp b/host/dlss5-feed-host64.cpp
+index 61ae2e8..0a75f89 100644
+--- a/host/dlss5-feed-host64.cpp
++++ b/host/dlss5-feed-host64.cpp
+@@ -2265,8 +2265,33 @@ static bool InitDisguise()
+         HostEnableDred(ini);   // must precede the create; does nothing unless [DLSS5Host] Dred=1
+         HostReadSettleEvals(ini);
+     }
+-    HRESULT hr = create_device(nullptr, D3D_FEATURE_LEVEL_11_0, __uuidof(ID3D12Device),
++    // Local integration: a hybrid laptop's default adapter can be Intel. NGX must
++    // run on NVIDIA, so select an NVIDIA adapter explicitly without OS settings.
++    IDXGIFactory1 *adapter_factory = nullptr;
++    IDXGIAdapter1 *ngx_adapter = nullptr;
++    if (SUCCEEDED(create_factory(__uuidof(IDXGIFactory1), reinterpret_cast<void **>(&adapter_factory))))
++    {
++        for (UINT i = 0; ; ++i)
++        {
++            IDXGIAdapter1 *candidate = nullptr;
++            if (adapter_factory->EnumAdapters1(i, &candidate) == DXGI_ERROR_NOT_FOUND) break;
++            if (candidate == nullptr) break;
++            DXGI_ADAPTER_DESC1 desc = {};
++            candidate->GetDesc1(&desc);
++            if (desc.VendorId == 0x10DE && !(desc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE))
++            {
++                ngx_adapter = candidate;
++                Log("[host] explicitly selected NVIDIA adapter: %ls", desc.Description);
++                break;
++            }
++            candidate->Release();
++        }
++        adapter_factory->Release();
++    }
++    if (ngx_adapter == nullptr) { Log("[host] no NVIDIA adapter found for NGX"); return false; }
++    HRESULT hr = create_device(ngx_adapter, D3D_FEATURE_LEVEL_11_0, __uuidof(ID3D12Device),
+                                reinterpret_cast<void **>(&h.dev));
++    ngx_adapter->Release();
+     if (FAILED(hr))
+     {
+         Log("[host] D3D12CreateDevice failed 0x%08X (%s)", hr, FeedHrName(hr));
+@@ -2410,7 +2435,7 @@ static void LogHostAdapter()
+         }
+         f->Release();
+     }
+-    Log("[host] device adapter: %ls  LUID %08lX:%08lX  PCI %04X:%04X  driver %s (DXGI's default adapter)",
++    Log("[host] device adapter: %ls  LUID %08lX:%08lX  PCI %04X:%04X  driver %s (explicit NVIDIA adapter)",
+         desc, (unsigned long)luid.HighPart, (unsigned long)luid.LowPart, vendor, device, driver);
+     g_driver_x100 = driver[0] != '?' ? static_cast<unsigned>(atof(driver) * 100.0 + 0.5) : 0;
+ 

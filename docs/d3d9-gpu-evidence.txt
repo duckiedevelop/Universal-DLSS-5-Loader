@@ -1,0 +1,22 @@
+Disposable x86 D3D9 renderer: GPU preferences only, no Optimus export
+
+adapter 0: NVIDIA GeForce RTX 4050 Laptop G\\.\DISPLAY1 (dgVoodoo DX API Layer) vendor 0000
+CreateDevice: 0x00000000
+frames presented: 1398
+
+
+dlss5-feed.log
+15:30:09.937  [feed32] host connected in 2297 ms (protocol v11, D3D11 client)
+15:30:10.944  [feed32] shared set ready: 640x360 (100% of 640x360) color fmt=28 output fmt=28 (host ngx 0x00000001, DLSS)
+15:30:10.966  [feed32] frame 1 delivered (640x360, reset=0)
+
+host64/dlss5-feed-host.log
+15:30:07.761  [host] explicitly selected NVIDIA adapter: NVIDIA GeForce RTX 4050 Laptop GPU
+15:30:08.543  [host] device adapter: NVIDIA GeForce RTX 4050 Laptop GPU  LUID 00000000:00014EFC  PCI 10DE:28A1  driver 616.92 (explicit NVIDIA adapter)
+15:30:10.950  [host] frame 1 evaluated (0 presents skipped so far, 0 owed)
+15:30:20.972  [host] neural consumer outcome: neural feature active (feature 18 created and evaluated)
+
+host64/ReShade.log
+15:30:11:775 [27240] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: inline feature 18 evaluation succeeded (count=1, NR input 640x360 (guides 640x360), output 640x360, 1 stack pass(es) [native])
+15:30:13:566 [27240] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: inline feature 18 evaluation succeeded (count=60, NR input 640x360 (guides 640x360), output 640x360, 1 stack pass(es) [native])
+15:30:30:748 [27240] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: inline feature 18 evaluation succeeded (count=600, NR input 640x360 (guides 640x360), output 640x360, 1 stack pass(es) [native])

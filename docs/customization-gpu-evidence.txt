@@ -1,0 +1,18 @@
+15:01:27:600 [27248] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: DLSS5 active settings: intensity=0.550000 color_strength=0.700000 transfer=1.000000 paper_white=2.537500 preset=0 style=1 enabled=ON
+15:01:31:483 [27248] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: feature 18 created via the signed snippet after DLSS/DLAA for NR input 480x270 -> output 480x270, game DLSS created at 640x360
+15:01:31:497 [27248] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: NR pass 1 model: style=1 local_tone=0.8 structure=0.65 skin=0.2 auto_mask=1 ui_correction=0
+15:01:31:662 [27248] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: feature 18 created via the signed snippet after DLSS/DLAA for NR input 480x270 -> output 480x270, game DLSS created at 640x360 (stack pass 2)
+15:01:31:662 [27248] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: inline feature 18 evaluation succeeded (count=1, NR input 480x270 (guides 640x360), output 640x360, 2 stack pass(es) [native])
+15:01:32:175 [27248] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: inline feature 18 evaluation succeeded (count=60, NR input 480x270 (guides 640x360), output 640x360, 2 stack pass(es) [native])
+15:01:33:220 [27248] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: feature 18 created via the signed snippet after DLSS/DLAA for NR input 480x270 -> output 480x270, game DLSS created at 640x360
+15:01:33:222 [27248] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: NR pass 1 model: style=1 local_tone=0.8 structure=0.65 skin=0.2 auto_mask=1 ui_correction=0
+15:01:33:370 [27248] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: feature 18 created via the signed snippet after DLSS/DLAA for NR input 480x270 -> output 480x270, game DLSS created at 640x360 (stack pass 2)
+15:01:34:139 [27248] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: NR effective settings: enabled=1 intensity=0.55 passes=2 chained_history=0 path=after resolution_scale=0.75 follow_input=0 look=0 stabilize=0 upsample=0 codec=2 feed=0 governor=2
+
+Cinematic style test:
+15:01:34:529 [27992] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: DLSS5 active settings: intensity=0.600000 color_strength=1.000000 transfer=1.000000 paper_white=2.537500 preset=0 style=2 enabled=ON
+15:01:38:194 [27992] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: NR pass 1 model: style=2 local_tone=1 structure=1 skin=-1 auto_mask=0 ui_correction=0
+15:01:38:196 [27992] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: inline feature 18 evaluation succeeded (count=1, NR input 640x360 (guides 640x360), output 640x360, 1 stack pass(es) [native])
+15:01:38:678 [27992] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: inline feature 18 evaluation succeeded (count=60, NR input 640x360 (guides 640x360), output 640x360, 1 stack pass(es) [native])
+15:01:39:457 [27992] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: NR pass 1 model: style=2 local_tone=1 structure=1 skin=-1 auto_mask=0 ui_correction=0
+15:01:39:954 [27992] | INFO  | [DLSS 5 Neural Rendering] DLSS5 Generic: NR effective settings: enabled=1 intensity=0.6 passes=1 chained_history=1 path=after resolution_scale=1 follow_input=0 look=0 stabilize=0 upsample=0 codec=2 feed=0 governor=2

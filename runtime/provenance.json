@@ -1,0 +1,9 @@
+{
+  "source": "https://github.com/RankFTW/rhi-repo/releases/download/dlssnr-310.8.SF-v2/nvngx_dlssnr_310.8.SF-v2.zip",
+  "archive_sha256": "1da35941894994eb087e017577829e492454e9bae3a6a9397027069ceb74955c",
+  "dll_sha256": "6eb209e764f39872625debd6abaf45e2bb6322f6f270f781f70c059ae30b3927",
+  "variant": "310.8 SF-v2 community-modified runtime",
+  "authenticode": "Unsigned: embedded NVIDIA signature removed by community modification.",
+  "hash_reference": "https://github.com/2600th/dlss5-video-player/blob/main/packaging/runtime-lock.json",
+  "archive_hash_reference": "https://github.com/deepbeepmeep/Wan2GP/blob/main/docs/DLSS5.md"
+}
