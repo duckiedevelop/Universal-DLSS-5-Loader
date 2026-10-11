@@ -18,4 +18,4 @@ The root MIT license covers this project's code. It does not replace upstream li
 
 `tools/nvidia-host.patch` contains the local helper change for explicit NVIDIA adapter selection. Keep Feeder's upstream notices with any permitted distribution of that derived helper.
 
-The source archive deliberately omits downloaded dependencies, SDK inputs, compiled executables, and rendering payloads. Review each upstream component's actual terms before distributing any application bundle. Project code was developed with OpenAI Codex assistance; this preparation session used GPT-6. No generated art or audio is included.
+The source archive deliberately omits downloaded dependencies, SDK inputs, compiled executables, and rendering payloads. Review each upstream component's actual terms before distributing any application bundle. Project code was developed with OpenAI Codex assistance; this preparation session used GPT-6. The project emblem in `docs/images/logo.png` was supplied by the project owner. No audio is included.

@@ -1,13 +1,19 @@
+<p align="center">
+  <img src="docs/images/logo.png" alt="Universal DLSS 5 Loader logo" width="240">
+</p>
+
 # Universal DLSS 5 Loader
 
 A native Windows app for installing, customizing, checking, and restoring a community DLSS 5 neural rendering pipeline in games. Built with C++20, Dear ImGui, and a Python backend.
+
+> **Known issue: DirectX 9 currently has crash issues.** Treat DX9 support as experimental; stable game compatibility has not been established.
 
 ![Universal DLSS 5 Loader menu](docs/images/menu.png)
 
 ## Features
 
 - Install ReShade, DLSS5-Feeder, RenoDX, motion-vector shaders, and matching SR/NR runtimes from a prepared local payload.
-- Support x64 and x86 DirectX 11/12 and OpenGL games, plus DirectX 9 through dgVoodoo. Vulkan requires an additional bridge.
+- Support x64 and x86 DirectX 11/12 and OpenGL games. Experimental DirectX 9 support uses dgVoodoo and currently has known crash issues. Vulkan requires an additional bridge.
 - Adjust strength, color, tone, detail, skin detail, masking, model style, resolution, passes, and history. Save settings per game.
 - Verify payload hashes, back up original files, roll back interrupted installs, and restore originals while retaining edited settings.
 - Launch Steam games through their detected installation identity; legacy CS:GO retains `-insecure`.
@@ -77,6 +83,7 @@ DirectX 9 setup uses dgVoodoo 2.87.5 with DirectX 11 output, 1 GB emulated VRAM,
 
 ## Troubleshooting and compatibility
 
+- **DirectX 9 crashes:** the current DX9 bridge has known crash issues. A successful synthetic test or installation check does not confirm stable rendering in a game.
 - Existing proxy DLL or addon conflicts, running games, changed payloads, and damaged backups stop installation or restore. Read the reported error before changing files.
 - Check `setup.log`, the operation results in `jobs/`, and rendering logs in the game folder or `diagnostics/host64/`. **Open logs** opens the relevant folder.
 - If preparation reports a hash mismatch, stop and investigate the upstream asset. Do not disable verification. Some shader sources use upstream branches and may need a reviewed dependency update if they change.
