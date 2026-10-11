@@ -107,3 +107,5 @@ Thanks to [Dear ImGui](https://github.com/ocornut/imgui), [nlohmann/json](https:
 Developed with assistance from OpenAI Codex; repository preparation in this session used GPT-6. Dependency provenance and runtime hashes are retained in the preparation scripts, payload manifests, and `runtime/provenance.json`.
 
 This repository and its source archive exclude downloaded runtime binaries, game files, build outputs, local settings, and logs. Rebuild and acquire dependencies from their upstream sources; this repository's MIT license does not grant redistribution rights for those components.
+
+Note: About 90% of the code was GPT 6 Astra + Sol 6.1. If you are anti AI, do not use this project.
